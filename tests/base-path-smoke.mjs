@@ -13,7 +13,7 @@ page.on('console', (message) => {
 page.on('pageerror', (error) => errors.push(error.message))
 
 try {
-  await page.goto(baseUrl, { waitUntil: 'networkidle' })
+  await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 })
   await page.getByText('Paper Timeline').waitFor()
 
   await page.getByRole('link', { name: 'Relations', exact: true }).click()
