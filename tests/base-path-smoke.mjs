@@ -2,6 +2,7 @@ import { chromium } from 'playwright'
 
 const baseUrl = process.env.PAGES_BASE_URL
 if (!baseUrl) throw new Error('PAGES_BASE_URL is required')
+const expectedBasePath = new URL(baseUrl).pathname.replace(/\/$/, '')
 
 const browser = await chromium.launch({ headless: true })
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 } })
@@ -17,7 +18,7 @@ try {
 
   await page.getByRole('link', { name: 'Relations', exact: true }).click()
   await page.getByRole('heading', { name: 'Research relations' }).waitFor()
-  if (!page.url().includes('/awsome-llm4ad/relations')) throw new Error(`Unexpected Relations URL: ${page.url()}`)
+  if (!page.url().includes(`${expectedBasePath}/relations`)) throw new Error(`Unexpected Relations URL: ${page.url()}`)
 
   await page.getByRole('link', { name: 'Papers', exact: true }).click()
   await page.getByRole('heading', { name: 'Paper index' }).waitFor()

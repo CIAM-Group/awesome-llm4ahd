@@ -25,7 +25,7 @@ export function SiteHeader() {
           </NavLink>
         ))}
       </nav>
-      <a className="github-link" href="https://github.com/CIAM-Group/awsome-llm4ad" target="_blank" rel="noreferrer" aria-label="Open GitHub repository" title="GitHub repository">
+      <a className="github-link" href="https://github.com/CIAM-Group/awesome-llm4ad" target="_blank" rel="noreferrer" aria-label="Open GitHub repository" title="GitHub repository">
         <Github size={18} strokeWidth={1.7} aria-hidden="true" />
       </a>
     </header>

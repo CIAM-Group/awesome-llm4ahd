@@ -6,10 +6,10 @@
 
 [![Papers](https://img.shields.io/badge/curated_papers-9-176b63)](#seed-collection)
 [![Relations](https://img.shields.io/badge/typed_relations-10-285da8)](data/relations.yml)
-[![License](https://img.shields.io/github/license/CIAM-Group/awsome-llm4ad)](LICENSE)
-[![Deploy](https://github.com/CIAM-Group/awsome-llm4ad/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/CIAM-Group/awsome-llm4ad/actions/workflows/deploy-pages.yml)
+[![License](https://img.shields.io/github/license/CIAM-Group/awesome-llm4ad)](LICENSE)
+[![Deploy](https://github.com/CIAM-Group/awesome-llm4ad/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/CIAM-Group/awesome-llm4ad/actions/workflows/deploy-pages.yml)
 
-[Explore the atlas](https://ciam-group.github.io/awsome-llm4ad/) · [Browse papers](#seed-collection) · [Contribute](CONTRIBUTING.md)
+[Explore the atlas](https://ciam-group.github.io/awesome-llm4ad/) · [Browse papers](#seed-collection) · [Contribute](CONTRIBUTING.md)
 
 </div>
 
