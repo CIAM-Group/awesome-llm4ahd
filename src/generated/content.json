@@ -1,0 +1,588 @@
+{
+  "version": 1,
+  "taxonomy": {
+    "relation_types": {
+      "concurrent-work": {
+        "label": "Concurrent work",
+        "description": "Independent papers from the same research period.",
+        "use_when": "The papers are contemporaneous and neither builds on the other.",
+        "avoid_when": "A later paper explicitly extends, adapts, or evaluates the earlier work.",
+        "direction": "undirected"
+      },
+      "extends": {
+        "label": "Extended by",
+        "description": "The later paper strengthens a core part of the earlier method.",
+        "use_when": "The later paper preserves the main framework and adds a clear capability.",
+        "avoid_when": "The earlier paper is only cited or used as a baseline.",
+        "direction": "directed"
+      },
+      "generalizes": {
+        "label": "Generalized by",
+        "description": "The later paper broadens the earlier method's scope.",
+        "use_when": "The change expands tasks, distributions, artifacts, or system scale.",
+        "avoid_when": "The papers only share a broad idea.",
+        "direction": "directed"
+      },
+      "adapts": {
+        "label": "Adapted by",
+        "description": "The later paper transfers a recognizable method to a new setting.",
+        "use_when": "A method is reused for a different domain or design artifact.",
+        "avoid_when": "The new setting is only another routine experiment.",
+        "direction": "directed"
+      },
+      "contrasts": {
+        "label": "Alternative path",
+        "description": "The later paper takes a different design route on the same question.",
+        "use_when": "The link reveals a concrete trade-off in design, search, or feedback.",
+        "avoid_when": "The earlier paper is merely a benchmark baseline.",
+        "direction": "directed"
+      },
+      "evaluated-by": {
+        "label": "Evaluated by",
+        "description": "The later paper explicitly analyzes the earlier method.",
+        "use_when": "The later paper measures or stress-tests a specific property of the earlier work.",
+        "avoid_when": "The earlier paper appears only in a results table.",
+        "direction": "directed"
+      }
+    },
+    "dimensions": {
+      "historical": {
+        "label": "History",
+        "description": "Chronology and concurrent emergence of research ideas.",
+        "prompt": "Is the connection primarily about when the papers appeared?"
+      },
+      "design-object": {
+        "label": "Design object",
+        "description": "The artifact being generated or evolved, such as a heuristic, set, or program.",
+        "prompt": "Does the connection change what the system is designing?"
+      },
+      "search": {
+        "label": "Search",
+        "description": "Candidate generation, selection, diversity, exploration, and credit assignment.",
+        "prompt": "Does the connection mainly change how candidates are searched?"
+      },
+      "feedback": {
+        "label": "Feedback",
+        "description": "Scores, reflection, memory, or behavior used to guide the next proposal.",
+        "prompt": "Does the connection mainly change what evidence guides improvement?"
+      },
+      "scope": {
+        "label": "Scope",
+        "description": "Transfer across instances, tasks, domains, artifacts, or full systems.",
+        "prompt": "Does the connection mainly broaden where or at what scale the method works?"
+      }
+    }
+  },
+  "institutions": {
+    "cityu-hk": {
+      "name": "City University of Hong Kong",
+      "short_name": "CityUHK",
+      "initials": "CityU",
+      "website": "https://www.cityu.edu.hk/",
+      "accent": "#8b1e3f"
+    },
+    "huawei-noahs-ark": {
+      "name": "Huawei Noah's Ark Lab",
+      "short_name": "Huawei NAL",
+      "initials": "HNAL",
+      "website": "https://www.huawei.com/en/lab",
+      "accent": "#b22b2b"
+    },
+    "pku": {
+      "name": "Peking University",
+      "short_name": "PKU",
+      "initials": "PKU",
+      "website": "https://english.pku.edu.cn/",
+      "accent": "#9d2c2c"
+    },
+    "smu": {
+      "name": "Singapore Management University",
+      "short_name": "SMU",
+      "initials": "SMU",
+      "website": "https://www.smu.edu.sg/",
+      "accent": "#7a5125"
+    },
+    "seu": {
+      "name": "Southeast University",
+      "short_name": "SEU",
+      "initials": "SEU",
+      "website": "https://www.seu.edu.cn/",
+      "accent": "#156b78"
+    },
+    "kaist": {
+      "name": "KAIST",
+      "short_name": "KAIST",
+      "initials": "KAIST",
+      "website": "https://www.kaist.ac.kr/en/",
+      "accent": "#1b5b9a"
+    },
+    "nus": {
+      "name": "National University of Singapore",
+      "short_name": "NUS",
+      "initials": "NUS",
+      "website": "https://www.nus.edu.sg/",
+      "accent": "#1d5a8a"
+    },
+    "sustech": {
+      "name": "Southern University of Science and Technology",
+      "short_name": "SUSTech",
+      "initials": "SUST",
+      "website": "https://www.sustech.edu.cn/en/",
+      "accent": "#3b5ca8"
+    },
+    "gmu": {
+      "name": "George Mason University",
+      "short_name": "Mason",
+      "initials": "GMU",
+      "website": "https://www.gmu.edu/",
+      "accent": "#006633"
+    },
+    "hust": {
+      "name": "Hanoi University of Science and Technology",
+      "short_name": "HUST",
+      "initials": "HUST",
+      "website": "https://hust.edu.vn/en/",
+      "accent": "#a0272d"
+    },
+    "uw-madison": {
+      "name": "University of Wisconsin–Madison",
+      "short_name": "UW–Madison",
+      "initials": "UWM",
+      "website": "https://www.wisc.edu/",
+      "accent": "#c5050c"
+    },
+    "inria": {
+      "name": "Inria",
+      "short_name": "Inria",
+      "initials": "INR",
+      "website": "https://www.inria.fr/en",
+      "accent": "#d14f2f"
+    },
+    "google-deepmind": {
+      "name": "Google DeepMind",
+      "short_name": "Google DeepMind",
+      "initials": "GDM",
+      "website": "https://deepmind.google/",
+      "accent": "#4285f4"
+    },
+    "affiliation-pending": {
+      "name": "Affiliation to be normalized",
+      "short_name": "Pending",
+      "initials": "?",
+      "accent": "#6c746f"
+    }
+  },
+  "relations": [
+    {
+      "from": "ael",
+      "to": "funsearch",
+      "type": "concurrent-work",
+      "dimension": "historical",
+      "description": "AEL and FunSearch independently established LLM-guided evolutionary search for algorithm or program design in late 2023."
+    },
+    {
+      "from": "ael",
+      "to": "eoh",
+      "type": "extends",
+      "dimension": "design-object",
+      "description": "EoH extends algorithm evolution with a joint representation of natural-language ideas and executable heuristic code."
+    },
+    {
+      "from": "eoh",
+      "to": "reevo",
+      "type": "extends",
+      "dimension": "feedback",
+      "description": "ReEvo adds short- and long-term reflection as verbal feedback for later heuristic proposals."
+    },
+    {
+      "from": "eoh",
+      "to": "mcts-ahd",
+      "type": "contrasts",
+      "dimension": "search",
+      "description": "MCTS-AHD preserves heuristic lineages in a tree instead of relying on a fixed elite population."
+    },
+    {
+      "from": "eoh",
+      "to": "hsevo",
+      "type": "evaluated-by",
+      "dimension": "search",
+      "description": "HSEvo analyzes EoH's diversity and convergence before introducing a harmony-search-based alternative."
+    },
+    {
+      "from": "reevo",
+      "to": "hsevo",
+      "type": "evaluated-by",
+      "dimension": "search",
+      "description": "HSEvo studies the gap between ReEvo's objective quality and search-space diversity."
+    },
+    {
+      "from": "eoh",
+      "to": "eoh-s",
+      "type": "generalizes",
+      "dimension": "scope",
+      "description": "EoH-S changes the output from one heuristic to a complementary set that covers varied instance distributions."
+    },
+    {
+      "from": "eoh",
+      "to": "mles",
+      "type": "adapts",
+      "dimension": "scope",
+      "description": "MLES transfers an EoH-style evolutionary loop from combinatorial heuristics to multimodal programmatic control."
+    },
+    {
+      "from": "funsearch",
+      "to": "alphaevolve",
+      "type": "generalizes",
+      "dimension": "scope",
+      "description": "AlphaEvolve broadens evaluator-guided program evolution into a coding-agent system for scientific and infrastructure tasks."
+    },
+    {
+      "from": "funsearch",
+      "to": "hsevo",
+      "type": "evaluated-by",
+      "dimension": "search",
+      "description": "HSEvo includes FunSearch in its analysis of diversity and convergence in evolutionary program search."
+    }
+  ],
+  "papers": [
+    {
+      "id": "ael",
+      "short_title": "AEL",
+      "title": "Algorithm Evolution Using Large Language Model",
+      "authors": [
+        "Fei Liu",
+        "Xialiang Tong",
+        "Mingxuan Yuan",
+        "Qingfu Zhang"
+      ],
+      "year": 2023,
+      "date": "2023-11-26",
+      "venue": "arXiv",
+      "paper_url": "https://arxiv.org/pdf/2311.15249",
+      "institutions": [
+        "cityu-hk",
+        "huawei-noahs-ark"
+      ],
+      "primary_dimension": "design-object",
+      "dimensions": [
+        "design-object",
+        "search",
+        "scope"
+      ],
+      "problems": [
+        "Traveling Salesman Problem"
+      ],
+      "featured": true,
+      "summary": "AEL explicitly frames algorithm-level evolution with a large language model as an automatic algorithm design process, using evolutionary search to generate constructive TSP algorithms without model training.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Algorithm design traditionally depends on repeated manual experiments by people who understand both a problem domain and the mechanics of heuristic search. AEL asks whether an LLM can participate at the algorithm level: not merely tune a model or fill in a small code fragment, but propose and evolve complete optimization procedures.</p>\n<p>The paper was publicly posted on arXiv on 26 November 2023. Together with FunSearch's December 2023 publication, it marks the early public emergence of LLM-guided evolutionary algorithm and program design. The chronology is represented as a concurrent-work relation rather than as a claim that one paper extends the other.</p>\n<p><img src=\"paper-assets/ael/images/paper-cover.jpg\" alt=\"AEL paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Liu et al., AEL; included for research navigation and linked to the original paper.</em></p>\n<h2>Core method</h2>\n<p>AEL uses an evolutionary loop in which an LLM generates candidate algorithm ideas and executable implementations. Candidate algorithms are evaluated on optimization instances, selected according to their performance, and fed back into later generations. The LLM is therefore used as a proposal mechanism inside a measurable search process rather than treated as an unchecked oracle.</p>\n<p>The initial demonstration focuses on constructive heuristics for the Traveling Salesman Problem. The generated algorithms are compared with simple hand-crafted rules, direct LLM-generated heuristics, and domain-specific learned solvers.</p>\n<h2>Contributions</h2>\n<ul>\n<li>It names and demonstrates algorithm evolution using LLMs as an explicit automatic-design setting.</li>\n<li>It searches at algorithm level without fine-tuning the language model.</li>\n<li>It highlights scalability across problem sizes as a desirable property of generated constructive algorithms.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The most important strength is conceptual clarity: a candidate is an executable algorithm with measurable behavior, not only a text answer. The main limitations are a narrow initial problem family, reliance on evaluator design, and limited analysis of how the evolutionary representation controls diversity and credit assignment.</p>\n<p>Future work can separate the algorithm object from the search controller, test transfer across task distributions, and record behavioral as well as objective similarity between candidates.</p>\n<h2>Connections</h2>\n<p>See the <a href=\"/relations/\">concurrent-work relation with FunSearch</a> and the later EoH extension in the research map.</p>\n"
+    },
+    {
+      "id": "funsearch",
+      "short_title": "FunSearch",
+      "title": "Mathematical discoveries from program search with large language models",
+      "authors": [
+        "Bernardino Romera-Paredes",
+        "Mohammadamin Barekatain",
+        "Alexander Novikov",
+        "Matej Balog",
+        "M. Pawan Kumar",
+        "Emilien Dupont",
+        "Francisco J. R. Ruiz",
+        "Jordan S. Ellenberg",
+        "Pengming Wang",
+        "Omar Fawzi",
+        "Pushmeet Kohli",
+        "Alhussein Fawzi"
+      ],
+      "year": 2023,
+      "date": "2023-12-14",
+      "venue": "Nature",
+      "paper_url": "https://www.nature.com/articles/s41586-023-06924-6.pdf",
+      "code_url": "https://github.com/google-deepmind/funsearch",
+      "institutions": [
+        "google-deepmind",
+        "uw-madison",
+        "inria"
+      ],
+      "primary_dimension": "design-object",
+      "dimensions": [
+        "design-object",
+        "search",
+        "feedback",
+        "scope"
+      ],
+      "problems": [
+        "Cap set problem",
+        "Online bin packing"
+      ],
+      "featured": true,
+      "summary": "FunSearch pairs a pretrained language model with a systematic evaluator and evolves programs in function space, demonstrating new mathematical constructions and improved algorithmic heuristics.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Large language models can propose plausible but incorrect ideas. FunSearch addresses that weakness by coupling creative program proposals to an evaluator that decides whether a candidate actually works. The result is an evolutionary procedure that searches for executable programs instead of asking an LLM to state a final answer directly.</p>\n<p><img src=\"paper-assets/funsearch/images/paper-cover.jpg\" alt=\"FunSearch paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Romera-Paredes et al., FunSearch; see the original <a href=\"https://www.nature.com/articles/s41586-023-06924-6\">Nature article</a>.</em></p>\n<h2>Core method</h2>\n<p>FunSearch starts with a program skeleton and evolves the part containing the problem-specific logic. A frozen pretrained LLM proposes mutations using best-performing programs as examples. The evaluator executes each candidate and returns an objective score, allowing an evolutionary database to preserve high-performing discoveries and revisit promising branches.</p>\n<p>The paper demonstrates the approach on the cap set problem in extremal combinatorics and on online bin packing. The latter is particularly relevant to LLM4AD because the output is an interpretable heuristic program rather than a raw solution vector.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A reusable LLM-plus-evaluator evolutionary procedure for program search.</li>\n<li>Demonstrations that search can produce new mathematical constructions beyond the model's nominal answer.</li>\n<li>An algorithmic application that discovers improved online bin-packing heuristics.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The evaluator gives the loop a verifiable feedback channel and the program representation makes discoveries inspectable. The approach still depends on a good skeleton, an efficient evaluator, and a search budget. It also leaves open how to move from a single task-specific program to a transferable algorithm system.</p>\n<h2>Connections</h2>\n<p>The atlas places FunSearch beside AEL as a late-2023 concurrent work. Later systems can be explored through the <code>system</code>, <code>search</code>, and <code>feedback</code> filters.</p>\n"
+    },
+    {
+      "id": "eoh",
+      "short_title": "EoH",
+      "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
+      "authors": [
+        "Fei Liu",
+        "Xialiang Tong",
+        "Mingxuan Yuan",
+        "Xi Lin",
+        "Fu Luo",
+        "Zhenkun Wang",
+        "Zhichao Lu",
+        "Qingfu Zhang"
+      ],
+      "year": 2024,
+      "date": "2024-01-04",
+      "venue": "ICML",
+      "paper_url": "https://arxiv.org/pdf/2401.02051",
+      "code_url": "https://github.com/FeiLiu36/EoH",
+      "institutions": [
+        "cityu-hk",
+        "huawei-noahs-ark"
+      ],
+      "primary_dimension": "design-object",
+      "dimensions": [
+        "design-object",
+        "search",
+        "feedback"
+      ],
+      "problems": [
+        "Traveling Salesman Problem",
+        "Bin Packing Problem",
+        "Flow Shop Scheduling Problem"
+      ],
+      "featured": true,
+      "summary": "EoH co-evolves natural-language thoughts and executable heuristic code inside an evolutionary search framework for automatic heuristic design.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Hand-designed heuristics encode years of domain experience but are expensive to create and difficult to transfer. EoH makes the design object explicit: a heuristic has a natural-language idea, or “thought,” and an executable implementation. Both can evolve instead of treating code generation as a one-off step.</p>\n<p><img src=\"paper-assets/eoh/images/paper-cover.jpg\" alt=\"EoH paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Liu et al., EoH; see the <a href=\"https://proceedings.mlr.press/v235/liu24bs.html\">ICML version</a>.</em></p>\n<h2>Core method</h2>\n<p>The framework alternates between exploration and exploitation operators. The LLM generates a thought, translates it into code, and evaluates the resulting heuristic. Strong candidates provide material for later prompts, while the evolutionary population keeps multiple candidate ideas alive. The algorithm therefore searches in a mixed space of language-level reasoning and executable behavior.</p>\n<p>Experiments cover TSP, online bin packing, and flow-shop scheduling. EoH reports strong results under a relatively small number of LLM queries and studies how generated heuristics compare with hand-crafted baselines and other AHD systems.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A co-evolutionary representation that keeps ideas and code connected.</li>\n<li>Explicit exploration/exploitation prompt strategies for LLM-based AHD.</li>\n<li>An empirical demonstration across several combinatorial optimization tasks.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The thought/code split gives researchers a useful explanation surface and makes the evolutionary operators easier to discuss. It can also create duplicated or syntactically different candidates with similar behavior. Performance remains sensitive to the evaluator, prompt operators, population management, and task-specific scaffold.</p>\n<h2>What to improve</h2>\n<p>Useful next steps include behavioral deduplication, cross-task representations, budget-aware search, and a clearer separation between structure discovery and parameter tuning.</p>\n<h2>Connections</h2>\n<p>EoH is connected to AEL as a later representation extension. The atlas intentionally does not create a direct EoH–FunSearch edge in the first release.</p>\n"
+    },
+    {
+      "id": "reevo",
+      "short_title": "ReEvo",
+      "title": "ReEvo: Large Language Models as Hyper-Heuristics with Reflective Evolution",
+      "authors": [
+        "Haoran Ye",
+        "Jiarui Wang",
+        "Zhiguang Cao",
+        "Federico Berto",
+        "Chuanbo Hua",
+        "Haeyeon Kim",
+        "Jinkyoo Park",
+        "Guojie Song"
+      ],
+      "year": 2024,
+      "date": "2024-02-02",
+      "venue": "NeurIPS",
+      "paper_url": "https://arxiv.org/pdf/2402.01145",
+      "code_url": "https://github.com/ai4co/reevo",
+      "institutions": [
+        "pku",
+        "seu",
+        "smu",
+        "kaist"
+      ],
+      "primary_dimension": "feedback",
+      "dimensions": [
+        "design-object",
+        "search",
+        "feedback"
+      ],
+      "problems": [
+        "Traveling Salesman Problem",
+        "Vehicle Routing Problem",
+        "Orienteering Problem",
+        "Knapsack Problem",
+        "Bin Packing Problem"
+      ],
+      "featured": true,
+      "summary": "ReEvo introduces language hyper-heuristics and reflective evolution, using short- and long-term LLM reflections as verbal gradients for open-ended heuristic search.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Evolution can preserve high-scoring candidates without explaining how to improve a weak one. ReEvo adds a reflective channel that turns evaluation outcomes into natural-language feedback. It frames the broader research direction as language hyper-heuristics: LLMs generate heuristics in an open-ended space with little manual definition of the search space.</p>\n<p><img src=\"paper-assets/reevo/images/paper-cover.jpg\" alt=\"ReEvo paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Ye et al., ReEvo; see the <a href=\"https://github.com/ai4co/reevo\">project repository</a>.</em></p>\n<h2>Core method</h2>\n<p>ReEvo maintains a population of generated heuristics and uses an LLM to reflect on candidate behavior. Short-term reflections focus on recent search outcomes; long-term reflections accumulate lessons that can guide later generations. The resulting verbal gradients complement objective scores and help the search move through a large open-ended heuristic space.</p>\n<p>The paper evaluates multiple algorithm types and combinatorial optimization problems, including both white-box and black-box settings. The emphasis is on broad applicability and LLM query efficiency rather than a single handcrafted heuristic template.</p>\n<h2>Contributions</h2>\n<ul>\n<li>The language hyper-heuristic framing for LLM-generated heuristics.</li>\n<li>Reflective evolution with short- and long-term memory.</li>\n<li>Broad experiments across problem types, COPs, and solver visibility settings.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>Reflection provides a human-readable search trace and a natural way to turn failure into a next-step suggestion. Its quality depends on the fidelity of the reflection prompt and the evaluator feedback. Reflection can also concentrate the population too quickly if diversity is not measured explicitly.</p>\n<h2>What to improve</h2>\n<p>Future systems should combine reflection with behavioral diversity, tree or archive-based exploration, and explicit compute accounting so that verbal improvement does not hide expensive trial-and-error.</p>\n<h2>Connections</h2>\n<p>The atlas treats ReEvo as an extension of the feedback channel in the AHD line and links forward to HSEvo's analysis of diversity versus objective quality.</p>\n"
+    },
+    {
+      "id": "hsevo",
+      "short_title": "HSEvo",
+      "title": "HSEvo: Elevating Automatic Heuristic Design with Diversity-Driven Harmony Search and Genetic Algorithm Using LLMs",
+      "authors": [
+        "Pham Vu Tuan Dat",
+        "Long Doan",
+        "Huynh Thi Thanh Binh"
+      ],
+      "year": 2025,
+      "date": "2024-12-19",
+      "venue": "AAAI",
+      "paper_url": "https://arxiv.org/pdf/2412.14995",
+      "code_url": "https://github.com/datphamvn/HSEvo",
+      "institutions": [
+        "hust",
+        "gmu"
+      ],
+      "primary_dimension": "search",
+      "dimensions": [
+        "search",
+        "design-object"
+      ],
+      "problems": [
+        "Traveling Salesman Problem",
+        "Bin Packing Problem",
+        "Orienteering Problem"
+      ],
+      "featured": true,
+      "summary": "HSEvo studies the diversity-convergence trade-off in LLM evolutionary program search and introduces harmony-search mechanisms for balancing exploration with objective quality.",
+      "body_html": "<h2>Why it matters</h2>\n<p>High objective scores can hide a collapsed search space. If the population contains many syntactic variants of the same behavior, later generations may have little room to discover a genuinely different algorithm. HSEvo makes diversity itself a first-class object of analysis.</p>\n<p><img src=\"paper-assets/hsevo/images/paper-cover.jpg\" alt=\"HSEvo paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Dat et al., HSEvo; see the <a href=\"https://arxiv.org/abs/2412.14995\">arXiv paper</a>.</em></p>\n<h2>Core method</h2>\n<p>HSEvo proposes diversity measures for heuristic search spaces, analyzes previous LLM evolutionary methods, and combines harmony search with a genetic algorithm. The design aims to keep candidates sufficiently different while still improving their objective scores. Its experiments explicitly compare the diversity and performance behavior of FunSearch, EoH, and ReEvo.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A measurable exploration–exploitation lens for LLM-based heuristic search.</li>\n<li>Diversity-driven harmony-search operations inside an LLM evolutionary loop.</li>\n<li>Empirical analysis of why high objective quality and high search diversity can diverge.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The paper gives the community language and metrics for discussing a problem that is easy to miss in leaderboard-only comparisons. Diversity metrics may still be representation-dependent, and maintaining diversity can increase evaluation cost or preserve low-quality branches.</p>\n<h2>What to improve</h2>\n<p>Behavioral trajectory similarity, task-transfer tests, and budget-normalized Pareto fronts would make diversity claims more robust across code representations and problems.</p>\n<h2>Connections</h2>\n<p>HSEvo evaluates the exploration behavior of EoH, ReEvo, and FunSearch; those are separate typed relations rather than a single undifferentiated “similar” tag.</p>\n"
+    },
+    {
+      "id": "mcts-ahd",
+      "short_title": "MCTS-AHD",
+      "title": "Monte Carlo Tree Search for Comprehensive Exploration in LLM-Based Automatic Heuristic Design",
+      "authors": [
+        "Zhi Zheng",
+        "Zhuoliang Xie",
+        "Zhenkun Wang",
+        "Bryan Hooi"
+      ],
+      "year": 2025,
+      "date": "2025-01-15",
+      "venue": "ICML",
+      "paper_url": "https://arxiv.org/pdf/2501.08603",
+      "code_url": "https://github.com/zz1358m/MCTS-AHD-master",
+      "institutions": [
+        "sustech",
+        "nus"
+      ],
+      "primary_dimension": "search",
+      "dimensions": [
+        "design-object",
+        "search"
+      ],
+      "problems": [
+        "Traveling Salesman Problem",
+        "Capacitated Vehicle Routing Problem",
+        "Knapsack Problem",
+        "Bin Packing Problem",
+        "Assignment Scheduling Problem"
+      ],
+      "featured": true,
+      "summary": "MCTS-AHD organizes LLM-generated heuristics in a tree so that temporarily weak candidates can be revisited instead of disappearing from a fixed elite population.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Population-based LLM-AHD systems often preserve only the current elite candidates. That makes the search efficient but can discard a promising branch before its idea has been properly developed. MCTS-AHD treats the history of generated heuristics as a navigable tree.</p>\n<p><img src=\"paper-assets/mcts-ahd/images/paper-cover.jpg\" alt=\"MCTS-AHD paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Zheng et al., MCTS-AHD; see the <a href=\"https://arxiv.org/abs/2501.08603\">arXiv paper</a>.</em></p>\n<h2>Core method</h2>\n<p>Each heuristic is a node in a Monte Carlo tree. Selection balances exploitation of strong branches with exploration of less-visited branches; expansion asks the LLM to generate a new candidate; evaluation updates node statistics. The tree preserves ancestry and makes it possible to return to an underperforming parent whose descendants may still contain useful design directions.</p>\n<p>The paper evaluates the approach across several combinatorial optimization tasks and compares it with earlier LLM-AHD population procedures.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A tree-structured history for LLM-based heuristic evolution.</li>\n<li>Explicit exploration of candidate lineages instead of only the current elite set.</li>\n<li>A search-controller perspective on improving automatic heuristic design.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>Lineage preservation is useful for analysis and for recovering ideas lost by aggressive truncation. Tree growth can become expensive, and node statistics remain tied to noisy, task-specific evaluators. The method also raises a broader question: which branch is worth developing when early objective scores are unreliable?</p>\n<h2>What to improve</h2>\n<p>Graph-based memory, behavior-aware similarity, and adaptive evaluation budgets could help the tree allocate compute to candidates whose potential is not visible in a single score.</p>\n<h2>Connections</h2>\n<p>MCTS-AHD is a search-level contrast to population-centered AHD systems and appears in the atlas as a branch from the EoH research line.</p>\n"
+    },
+    {
+      "id": "alphaevolve",
+      "short_title": "AlphaEvolve",
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "authors": [
+        "Alexander Novikov",
+        "Ngân Vũ",
+        "Marvin Eisenberger",
+        "Emilien Dupont",
+        "Po-Sen Huang",
+        "Adam Zsolt Wagner",
+        "Sergey Shirobokov",
+        "Borislav Kozlovskii",
+        "Francisco J. R. Ruiz",
+        "Abbas Mehrabian",
+        "M. Pawan Kumar",
+        "Abigail See",
+        "Swarat Chaudhuri",
+        "George Holland",
+        "Alex Davies",
+        "Sebastian Nowozin",
+        "Pushmeet Kohli",
+        "Matej Balog"
+      ],
+      "year": 2025,
+      "date": "2025-06-16",
+      "venue": "arXiv white paper",
+      "paper_url": "https://arxiv.org/pdf/2506.13131",
+      "institutions": [
+        "google-deepmind"
+      ],
+      "primary_dimension": "scope",
+      "dimensions": [
+        "design-object",
+        "search",
+        "feedback",
+        "scope"
+      ],
+      "problems": [
+        "Scientific algorithm discovery",
+        "Data-center scheduling",
+        "Matrix multiplication",
+        "Hardware accelerator optimization"
+      ],
+      "featured": true,
+      "summary": "AlphaEvolve presents an evolutionary coding agent that edits executable algorithms, receives evaluator feedback, and searches across scientific and production infrastructure tasks.",
+      "body_html": "<h2>Why it matters</h2>\n<p>AlphaEvolve makes the system boundary larger than a single heuristic function. An autonomous pipeline of language models proposes direct code changes, evaluators measure them, and the search continues across longer-lived algorithmic artifacts. The paper describes a white-paper system rather than a conventional conference submission, so the atlas labels it accurately.</p>\n<p><img src=\"paper-assets/alphaevolve/images/paper-cover.jpg\" alt=\"AlphaEvolve paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Novikov et al., AlphaEvolve; see the <a href=\"https://arxiv.org/abs/2506.13131\">arXiv white paper</a>.</em></p>\n<h2>Core method</h2>\n<p>AlphaEvolve orchestrates coding agents, evolutionary selection, and one or more evaluators. Candidates are executable programs, and the harness can apply domain-specific correctness and performance checks. The paper reports applications to data-center scheduling, accelerator circuits, LLM training infrastructure, mathematical algorithms, and matrix multiplication.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A general coding-agent architecture for evaluator-guided algorithm evolution.</li>\n<li>Evidence that evolutionary code editing can target both scientific and production systems.</li>\n<li>A broad system-level framing of automatic discovery beyond fixed heuristic templates.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The executable artifact and evaluator make the loop concrete, while the wider system boundary enables real engineering impact. Reproducibility is limited by proprietary models, infrastructure, evaluators, and compute. Long-horizon evolution also makes harness safety, budget allocation, and anti-hacking checks central research concerns.</p>\n<h2>What to improve</h2>\n<p>Open implementations, transparent evaluation harnesses, and standardized budgets would make comparisons with academic AHD systems more meaningful.</p>\n<h2>Connections</h2>\n<p>The atlas treats AlphaEvolve as a system-level generalization of evaluator-guided program search, including FunSearch as its closest historical anchor.</p>\n"
+    },
+    {
+      "id": "eoh-s",
+      "short_title": "EoH-S",
+      "title": "EoH-S: Evolution of Heuristic Set using LLMs for Automated Heuristic Design",
+      "authors": [
+        "Fei Liu",
+        "Yilu Liu",
+        "Qingfu Zhang",
+        "Xialiang Tong",
+        "Mingxuan Yuan"
+      ],
+      "year": 2026,
+      "date": "2025-08-05",
+      "venue": "AAAI",
+      "paper_url": "https://arxiv.org/pdf/2508.03082",
+      "institutions": [
+        "cityu-hk",
+        "huawei-noahs-ark"
+      ],
+      "primary_dimension": "scope",
+      "dimensions": [
+        "design-object",
+        "scope",
+        "search"
+      ],
+      "problems": [
+        "Online Bin Packing",
+        "Traveling Salesman Problem",
+        "Capacitated Vehicle Routing Problem"
+      ],
+      "featured": true,
+      "summary": "EoH-S formulates automated heuristic set design and evolves a complementary set of heuristics so different instance distributions can be served by different candidates.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Most automatic heuristic design systems return one heuristic that must serve every test instance. A single winner can perform well on the training distribution while failing on a shifted size, geometry, or constraint distribution. EoH-S changes the objective: design a small set of complementary heuristics and let each instance use its strongest member.</p>\n<p><img src=\"paper-assets/eoh-s/images/paper-cover.jpg\" alt=\"EoH-S paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Liu et al., EoH-S; see the <a href=\"https://arxiv.org/abs/2508.03082\">arXiv paper</a>.</em></p>\n<h2>Core method</h2>\n<p>The paper introduces automated heuristic set design and studies its monotone, supermodular objective. EoH-S adds complementary population management and complementary-aware memetic search to an LLM-driven evolutionary framework. The final set is evaluated by whether its members cover different instances rather than by the score of a single global champion.</p>\n<p>Experiments span online bin packing, TSP, and CVRP across multiple sizes and distributions, with explicit comparisons to single-heuristic methods.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A problem formulation that treats a heuristic set as the design artifact.</li>\n<li>Complementarity-aware population management and local search.</li>\n<li>A direct attack on distribution shift and instance-level generalization.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>The formulation better matches real systems that see heterogeneous instances and makes “generalization” measurable through coverage. It also creates a harder credit-assignment problem: a candidate that is not globally best may still be essential to the set.</p>\n<h2>What to improve</h2>\n<p>Future work should make set size cost-aware, learn a fast instance-to-heuristic selector, and report behavioral diversity alongside objective complementarity.</p>\n<h2>Connections</h2>\n<p>EoH-S is modeled as a generalization of the single-heuristic EoH design object. Its main distinction is not a new prompt alone, but the change in what counts as a successful algorithm.</p>\n"
+    },
+    {
+      "id": "mles",
+      "short_title": "MLES",
+      "title": "Multimodal LLM-assisted Evolutionary Search for Programmatic Control Policies",
+      "authors": [
+        "Qinglong Hu",
+        "Xialiang Tong",
+        "Mingxuan Yuan",
+        "Fei Liu",
+        "Zhichao Lu",
+        "Qingfu Zhang"
+      ],
+      "year": 2026,
+      "date": "2025-08-07",
+      "venue": "ICLR",
+      "paper_url": "https://arxiv.org/pdf/2508.05433",
+      "code_url": "https://github.com/QingL2000/MLES",
+      "institutions": [
+        "cityu-hk",
+        "huawei-noahs-ark"
+      ],
+      "primary_dimension": "feedback",
+      "dimensions": [
+        "design-object",
+        "search",
+        "feedback",
+        "scope"
+      ],
+      "problems": [
+        "LunarLander",
+        "CarRacing"
+      ],
+      "featured": true,
+      "summary": "MLES combines multimodal LLM policy generation with evolutionary search and visual behavior analysis to discover executable, interpretable control policies.",
+      "body_html": "<h2>Why it matters</h2>\n<p>Learned control policies can be powerful but opaque. Scalar rewards alone often do not explain why a policy fails, which makes targeted improvement difficult. MLES uses a multimodal LLM to inspect execution traces and visual behavior while evolving programmatic policies that remain readable and executable.</p>\n<p><img src=\"paper-assets/mles/images/paper-cover.jpg\" alt=\"MLES paper overview\" /></p>\n<p><em>Paper cover and opening figure. Source: Hu et al., MLES; see the <a href=\"https://arxiv.org/abs/2508.05433\">arXiv paper</a>.</em></p>\n<h2>Core method</h2>\n<p>MLES runs a closed evolutionary loop over policy programs. The evaluator returns objective performance and visual rollouts; the multimodal model analyzes behavior and proposes targeted modifications. The reported instantiation uses an EoH-style evolutionary backbone, shares comparable initial populations, and adds visual feedback-driven behavior analysis.</p>\n<p>The paper evaluates LunarLander and CarRacing, comparing programmatic policies with reinforcement-learning baselines and an evolution loop without the visual analysis component.</p>\n<h2>Contributions</h2>\n<ul>\n<li>A general multimodal evolutionary search framework for executable policies.</li>\n<li>Behavior-level visual feedback in addition to scalar rewards.</li>\n<li>A bridge between automatic heuristic design and interpretable control-program discovery.</li>\n</ul>\n<h2>Strengths and limitations</h2>\n<p>Visual feedback can expose failure modes that a scalar score hides and gives the LLM a richer mutation signal. The approach introduces multimodal inference cost and depends on the quality of rendered traces, behavior descriptions, and evaluator design.</p>\n<h2>What to improve</h2>\n<p>Behavior embeddings, automatic failure-mode taxonomies, and cross-task policy transfer could make the visual feedback channel less dependent on prompt wording.</p>\n<h2>Connections</h2>\n<p>MLES adapts an EoH-like evolutionary backbone to programmatic control, demonstrating how the same search ideas can cross from combinatorial heuristics into multimodal policy discovery.</p>\n"
+    }
+  ]
+}

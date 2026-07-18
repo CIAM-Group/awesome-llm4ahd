@@ -1,0 +1,73 @@
+# Directed relations always run from the earlier paper (`from`) to the later paper (`to`).
+# `concurrent-work` is undirected and appears as a dashed line on the website.
+relations:
+  - from: ael
+    to: funsearch
+    type: concurrent-work
+    dimension: historical
+    description: >-
+      AEL and FunSearch independently established LLM-guided evolutionary search
+      for algorithm or program design in late 2023.
+  - from: ael
+    to: eoh
+    type: extends
+    dimension: design-object
+    description: >-
+      EoH extends algorithm evolution with a joint representation of
+      natural-language ideas and executable heuristic code.
+  - from: eoh
+    to: reevo
+    type: extends
+    dimension: feedback
+    description: >-
+      ReEvo adds short- and long-term reflection as verbal feedback for later
+      heuristic proposals.
+  - from: eoh
+    to: mcts-ahd
+    type: contrasts
+    dimension: search
+    description: >-
+      MCTS-AHD preserves heuristic lineages in a tree instead of relying on a
+      fixed elite population.
+  - from: eoh
+    to: hsevo
+    type: evaluated-by
+    dimension: search
+    description: >-
+      HSEvo analyzes EoH's diversity and convergence before introducing a
+      harmony-search-based alternative.
+  - from: reevo
+    to: hsevo
+    type: evaluated-by
+    dimension: search
+    description: >-
+      HSEvo studies the gap between ReEvo's objective quality and search-space
+      diversity.
+  - from: eoh
+    to: eoh-s
+    type: generalizes
+    dimension: scope
+    description: >-
+      EoH-S changes the output from one heuristic to a complementary set that
+      covers varied instance distributions.
+  - from: eoh
+    to: mles
+    type: adapts
+    dimension: scope
+    description: >-
+      MLES transfers an EoH-style evolutionary loop from combinatorial
+      heuristics to multimodal programmatic control.
+  - from: funsearch
+    to: alphaevolve
+    type: generalizes
+    dimension: scope
+    description: >-
+      AlphaEvolve broadens evaluator-guided program evolution into a coding-agent
+      system for scientific and infrastructure tasks.
+  - from: funsearch
+    to: hsevo
+    type: evaluated-by
+    dimension: search
+    description: >-
+      HSEvo includes FunSearch in its analysis of diversity and convergence in
+      evolutionary program search.

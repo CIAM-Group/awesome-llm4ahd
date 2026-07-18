@@ -14,8 +14,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -116,6 +116,13 @@ ipython_config.py
 # pdm.toml
 .pdm-python
 .pdm-build/
+
+# Node / Vite
+node_modules/
+dist/
+public/paper-assets/
+artifacts/screenshots/
+.DS_Store
 
 # pixi
 #   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.

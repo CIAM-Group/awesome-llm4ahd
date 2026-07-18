@@ -1,0 +1,57 @@
+name: Propose a paper
+description: Suggest a paper for AHD Papers.
+title: "[Paper]: "
+labels: [paper-proposal]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Public paper URL
+      description: Link directly to the public PDF.
+    validations:
+      required: true
+  - type: input
+    id: short-title
+    attributes:
+      label: Official acronym or proposed short title
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Primary research dimension
+      options:
+        - Design object
+        - Search
+        - Feedback
+        - Scope
+        - History
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should it be included?
+      description: Identify the algorithm-design object and the specific contribution.
+    validations:
+      required: true
+  - type: textarea
+    id: relations
+    attributes:
+      label: Known connections
+      description: Name existing atlas papers and explain the connection. Do not write only “similar method.”
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: This entry has a public paper, preprint, or white paper.
+          required: true
+        - label: I checked that the paper is not already in the atlas.
+          required: true

@@ -1,0 +1,61 @@
+# Controlled vocabulary: contributors must select from these values.
+# If none fits, propose a taxonomy change in an issue instead of inventing a new ID.
+relation_types:
+  concurrent-work:
+    label: Concurrent work
+    description: Independent papers from the same research period.
+    use_when: The papers are contemporaneous and neither builds on the other.
+    avoid_when: A later paper explicitly extends, adapts, or evaluates the earlier work.
+    direction: undirected
+  extends:
+    label: Extended by
+    description: The later paper strengthens a core part of the earlier method.
+    use_when: The later paper preserves the main framework and adds a clear capability.
+    avoid_when: The earlier paper is only cited or used as a baseline.
+    direction: directed
+  generalizes:
+    label: Generalized by
+    description: The later paper broadens the earlier method's scope.
+    use_when: The change expands tasks, distributions, artifacts, or system scale.
+    avoid_when: The papers only share a broad idea.
+    direction: directed
+  adapts:
+    label: Adapted by
+    description: The later paper transfers a recognizable method to a new setting.
+    use_when: A method is reused for a different domain or design artifact.
+    avoid_when: The new setting is only another routine experiment.
+    direction: directed
+  contrasts:
+    label: Alternative path
+    description: The later paper takes a different design route on the same question.
+    use_when: The link reveals a concrete trade-off in design, search, or feedback.
+    avoid_when: The earlier paper is merely a benchmark baseline.
+    direction: directed
+  evaluated-by:
+    label: Evaluated by
+    description: The later paper explicitly analyzes the earlier method.
+    use_when: The later paper measures or stress-tests a specific property of the earlier work.
+    avoid_when: The earlier paper appears only in a results table.
+    direction: directed
+
+dimensions:
+  historical:
+    label: History
+    description: Chronology and concurrent emergence of research ideas.
+    prompt: Is the connection primarily about when the papers appeared?
+  design-object:
+    label: Design object
+    description: The artifact being generated or evolved, such as a heuristic, set, or program.
+    prompt: Does the connection change what the system is designing?
+  search:
+    label: Search
+    description: Candidate generation, selection, diversity, exploration, and credit assignment.
+    prompt: Does the connection mainly change how candidates are searched?
+  feedback:
+    label: Feedback
+    description: Scores, reflection, memory, or behavior used to guide the next proposal.
+    prompt: Does the connection mainly change what evidence guides improvement?
+  scope:
+    label: Scope
+    description: Transfer across instances, tasks, domains, artifacts, or full systems.
+    prompt: Does the connection mainly broaden where or at what scale the method works?

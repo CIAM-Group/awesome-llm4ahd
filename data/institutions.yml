@@ -1,0 +1,83 @@
+cityu-hk:
+  name: City University of Hong Kong
+  short_name: CityUHK
+  initials: CityU
+  website: https://www.cityu.edu.hk/
+  accent: '#8b1e3f'
+huawei-noahs-ark:
+  name: Huawei Noah's Ark Lab
+  short_name: Huawei NAL
+  initials: HNAL
+  website: https://www.huawei.com/en/lab
+  accent: '#b22b2b'
+pku:
+  name: Peking University
+  short_name: PKU
+  initials: PKU
+  website: https://english.pku.edu.cn/
+  accent: '#9d2c2c'
+smu:
+  name: Singapore Management University
+  short_name: SMU
+  initials: SMU
+  website: https://www.smu.edu.sg/
+  accent: '#7a5125'
+seu:
+  name: Southeast University
+  short_name: SEU
+  initials: SEU
+  website: https://www.seu.edu.cn/
+  accent: '#156b78'
+kaist:
+  name: KAIST
+  short_name: KAIST
+  initials: KAIST
+  website: https://www.kaist.ac.kr/en/
+  accent: '#1b5b9a'
+nus:
+  name: National University of Singapore
+  short_name: NUS
+  initials: NUS
+  website: https://www.nus.edu.sg/
+  accent: '#1d5a8a'
+sustech:
+  name: Southern University of Science and Technology
+  short_name: SUSTech
+  initials: SUST
+  website: https://www.sustech.edu.cn/en/
+  accent: '#3b5ca8'
+gmu:
+  name: George Mason University
+  short_name: Mason
+  initials: GMU
+  website: https://www.gmu.edu/
+  accent: '#006633'
+hust:
+  name: Hanoi University of Science and Technology
+  short_name: HUST
+  initials: HUST
+  website: https://hust.edu.vn/en/
+  accent: '#a0272d'
+uw-madison:
+  name: University of Wisconsin–Madison
+  short_name: UW–Madison
+  initials: UWM
+  website: https://www.wisc.edu/
+  accent: '#c5050c'
+inria:
+  name: Inria
+  short_name: Inria
+  initials: INR
+  website: https://www.inria.fr/en
+  accent: '#d14f2f'
+google-deepmind:
+  name: Google DeepMind
+  short_name: Google DeepMind
+  initials: GDM
+  website: https://deepmind.google/
+  accent: '#4285f4'
+affiliation-pending:
+  name: Affiliation to be normalized
+  short_name: Pending
+  initials: '?'
+  accent: '#6c746f'
