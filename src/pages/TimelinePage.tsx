@@ -35,7 +35,7 @@ export function TimelinePage() {
       <section className="atlas-intro">
         <div className="atlas-intro__copy">
           <p className="eyebrow">Automatic heuristic design</p>
-          <h1>Follow the ideas,<br />not just the citations.</h1>
+          <h1>Paper Timeline</h1>
           <p className="atlas-intro__lede">Track how LLMs design, search, and improve algorithms.</p>
         </div>
         <div className="atlas-intro__facts" aria-label="Atlas statistics">

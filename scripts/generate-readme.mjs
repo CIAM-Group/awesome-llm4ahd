@@ -6,16 +6,23 @@ const endMarker = '<!-- PAPER_TABLE:END -->'
 const data = await buildContent({ write: false })
 const readme = await fs.readFile('README.md', 'utf8')
 
+function escapeCell(value) {
+  return String(value).replaceAll('|', '\\|').replaceAll('\n', ' ')
+}
+
 const rows = data.papers.map((paper) => {
-  const resources = [`[Paper](${paper.paper_url})`]
+  const resources = [`[Note](content/papers/${paper.id}/index.md)`]
   if (paper.code_url) resources.push(`[Code](${paper.code_url})`)
-  return `| [${paper.short_title}](content/papers/${paper.id}/index.md) | ${paper.date.slice(0, 7)} | ${paper.venue} ${paper.year} | ${data.taxonomy.dimensions[paper.primary_dimension].label} | ${resources.join(' · ')} |`
+  const shownProblems = paper.problems.slice(0, 3).map((problem) => `\`${escapeCell(problem)}\``)
+  if (paper.problems.length > 3) shownProblems.push(`+${paper.problems.length - 3}`)
+  const paperLabel = `**${escapeCell(paper.short_title)}** — ${escapeCell(paper.title)}`
+  return `| ${paper.date.slice(0, 7).replace('-', '.')} | [${paperLabel}](${paper.paper_url}) | ${escapeCell(paper.venue)} ${paper.year} | ${shownProblems.join(', ')} | ${data.taxonomy.dimensions[paper.primary_dimension].label} | ${resources.join(' · ')} |`
 }).join('\n')
 
 const table = [
   startMarker,
-  '| Paper | First public | Venue | Primary lens | Resources |',
-  '|---|---:|---|---|---|',
+  '| Month | Paper | Venue | Problems | Focus | Resources |',
+  '|:---:|---|:---:|---|:---:|:---:|',
   rows,
   endMarker,
 ].join('\n')

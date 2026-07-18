@@ -1,108 +1,54 @@
 <div align="center">
 
-# Awesome LLM4AD
+# Awesome LLM4AHD
 
-**A living research atlas for automatic algorithm design with large language models.**
+**Large language models for automatic heuristic and algorithm design.**
 
-[![Papers](https://img.shields.io/badge/curated_papers-9-176b63)](#seed-collection)
-[![Relations](https://img.shields.io/badge/typed_relations-10-285da8)](data/relations.yml)
-[![License](https://img.shields.io/github/license/CIAM-Group/awesome-llm4ad)](LICENSE)
-[![Deploy](https://github.com/CIAM-Group/awesome-llm4ad/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/CIAM-Group/awesome-llm4ad/actions/workflows/deploy-pages.yml)
-
-[Explore the atlas](https://ciam-group.github.io/awesome-llm4ad/) · [Browse papers](#seed-collection) · [Contribute](CONTRIBUTING.md)
+[Website](https://ciam-group.github.io/awesome-llm4ad/) · [Papers](#papers) · [Contribution guide](docs/CONTRIBUTION_GUIDE.md)
 
 </div>
 
-![AHD Papers timeline](docs/assets/atlas-preview.png)
+## Scope
 
-## Why another awesome list?
+This repository curates papers in which large language models participate in the design, search, evaluation, or improvement of executable algorithms and heuristics. Peer-reviewed papers, arXiv preprints, and public technical reports are included; software without an accompanying paper is not listed as a paper entry.
 
-Most paper lists answer **what exists**. AHD Papers also records **how the ideas connect**.
+## Papers
 
-- A GitHub-readable Markdown note for every paper.
-- A vertical research timeline based on the first public date.
-- A typed relation graph with human-written explanations.
-- Five controlled dimensions: history, design object, search, feedback, and scope.
-- Optional institution marks with a text fallback—missing logos never block contributions.
-- Static generation and GitHub Pages deployment with no backend or database.
-
-> [!IMPORTANT]
-> **AEL and FunSearch are represented as concurrent late-2023 work.** AEL appeared on arXiv on **26 November 2023**; FunSearch was published online in Nature on **14 December 2023**. The atlas records this chronology as an undirected `concurrent-work` relation. It does not create an EoH–FunSearch edge in the initial release.
-
-## Seed collection
-
-The first release intentionally starts small. Every entry has verified metadata, a structured research note, and a place in the atlas.
+Each entry links to the paper, a structured reading note, and code when available. Dates follow the first public release; venue years are shown separately.
 
 <!-- PAPER_TABLE:START -->
-| Paper | First public | Venue | Primary lens | Resources |
-|---|---:|---|---|---|
-| [AEL](content/papers/ael/index.md) | 2023-11 | arXiv 2023 | Design object | [Paper](https://arxiv.org/pdf/2311.15249) |
-| [FunSearch](content/papers/funsearch/index.md) | 2023-12 | Nature 2023 | Design object | [Paper](https://www.nature.com/articles/s41586-023-06924-6.pdf) · [Code](https://github.com/google-deepmind/funsearch) |
-| [EoH](content/papers/eoh/index.md) | 2024-01 | ICML 2024 | Design object | [Paper](https://arxiv.org/pdf/2401.02051) · [Code](https://github.com/FeiLiu36/EoH) |
-| [ReEvo](content/papers/reevo/index.md) | 2024-02 | NeurIPS 2024 | Feedback | [Paper](https://arxiv.org/pdf/2402.01145) · [Code](https://github.com/ai4co/reevo) |
-| [HSEvo](content/papers/hsevo/index.md) | 2024-12 | AAAI 2025 | Search | [Paper](https://arxiv.org/pdf/2412.14995) · [Code](https://github.com/datphamvn/HSEvo) |
-| [MCTS-AHD](content/papers/mcts-ahd/index.md) | 2025-01 | ICML 2025 | Search | [Paper](https://arxiv.org/pdf/2501.08603) · [Code](https://github.com/zz1358m/MCTS-AHD-master) |
-| [AlphaEvolve](content/papers/alphaevolve/index.md) | 2025-06 | arXiv white paper 2025 | Scope | [Paper](https://arxiv.org/pdf/2506.13131) |
-| [EoH-S](content/papers/eoh-s/index.md) | 2025-08 | AAAI 2026 | Scope | [Paper](https://arxiv.org/pdf/2508.03082) |
-| [MLES](content/papers/mles/index.md) | 2025-08 | ICLR 2026 | Feedback | [Paper](https://arxiv.org/pdf/2508.05433) · [Code](https://github.com/QingL2000/MLES) |
+| Month | Paper | Venue | Problems | Focus | Resources |
+|:---:|---|:---:|---|:---:|:---:|
+| 2023.11 | [**AEL** — Algorithm Evolution Using Large Language Model](https://arxiv.org/pdf/2311.15249) | arXiv 2023 | `Traveling Salesman Problem` | Design object | [Note](content/papers/ael/index.md) |
+| 2023.12 | [**FunSearch** — Mathematical discoveries from program search with large language models](https://www.nature.com/articles/s41586-023-06924-6.pdf) | Nature 2023 | `Cap set problem`, `Online bin packing` | Design object | [Note](content/papers/funsearch/index.md) · [Code](https://github.com/google-deepmind/funsearch) |
+| 2024.01 | [**EoH** — Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model](https://arxiv.org/pdf/2401.02051) | ICML 2024 | `Traveling Salesman Problem`, `Bin Packing Problem`, `Flow Shop Scheduling Problem` | Design object | [Note](content/papers/eoh/index.md) · [Code](https://github.com/FeiLiu36/EoH) |
+| 2024.02 | [**ReEvo** — ReEvo: Large Language Models as Hyper-Heuristics with Reflective Evolution](https://arxiv.org/pdf/2402.01145) | NeurIPS 2024 | `Traveling Salesman Problem`, `Vehicle Routing Problem`, `Orienteering Problem`, +2 | Feedback | [Note](content/papers/reevo/index.md) · [Code](https://github.com/ai4co/reevo) |
+| 2024.12 | [**HSEvo** — HSEvo: Elevating Automatic Heuristic Design with Diversity-Driven Harmony Search and Genetic Algorithm Using LLMs](https://arxiv.org/pdf/2412.14995) | AAAI 2025 | `Traveling Salesman Problem`, `Bin Packing Problem`, `Orienteering Problem` | Search | [Note](content/papers/hsevo/index.md) · [Code](https://github.com/datphamvn/HSEvo) |
+| 2025.01 | [**MCTS-AHD** — Monte Carlo Tree Search for Comprehensive Exploration in LLM-Based Automatic Heuristic Design](https://arxiv.org/pdf/2501.08603) | ICML 2025 | `Traveling Salesman Problem`, `Capacitated Vehicle Routing Problem`, `Knapsack Problem`, +2 | Search | [Note](content/papers/mcts-ahd/index.md) · [Code](https://github.com/zz1358m/MCTS-AHD-master) |
+| 2025.06 | [**AlphaEvolve** — AlphaEvolve: A coding agent for scientific and algorithmic discovery](https://arxiv.org/pdf/2506.13131) | arXiv white paper 2025 | `Scientific algorithm discovery`, `Data-center scheduling`, `Matrix multiplication`, +1 | Scope | [Note](content/papers/alphaevolve/index.md) |
+| 2025.08 | [**EoH-S** — EoH-S: Evolution of Heuristic Set using LLMs for Automated Heuristic Design](https://arxiv.org/pdf/2508.03082) | AAAI 2026 | `Online Bin Packing`, `Traveling Salesman Problem`, `Capacitated Vehicle Routing Problem` | Scope | [Note](content/papers/eoh-s/index.md) |
+| 2025.08 | [**MLES** — Multimodal LLM-assisted Evolutionary Search for Programmatic Control Policies](https://arxiv.org/pdf/2508.05433) | ICLR 2026 | `LunarLander`, `CarRacing` | Feedback | [Note](content/papers/mles/index.md) · [Code](https://github.com/QingL2000/MLES) |
 <!-- PAPER_TABLE:END -->
 
-## Read the field through four questions
+## Interactive atlas
 
-1. **What is being designed?** A function, heuristic, heuristic set, policy, or larger code artifact?
-2. **How does search improve it?** Population evolution, reflection, tree search, harmony search, or coding-agent orchestration?
-3. **What feedback is trusted?** Scalar evaluation, verbal gradients, behavioral traces, or multiple evaluators?
-4. **What transfers?** Across instances, distributions, problems, or full scientific and engineering systems?
+The website connects the collection through a compact [paper timeline](https://ciam-group.github.io/awesome-llm4ad/), a curated [relation map](https://ciam-group.github.io/awesome-llm4ad/relations), and paper-level research notes.
 
-## Repository structure
+[![AHD Papers timeline](docs/assets/atlas-preview.png)](https://ciam-group.github.io/awesome-llm4ad/)
 
-```text
-content/papers/<paper-id>/
-├── index.md                 # GitHub-readable note + YAML metadata
-└── images/                  # Optional, attributed figures/screenshots
+## Contributing
 
-data/
-├── institutions.yml        # One record per institution; logo optional
-├── relations.yml           # Curated paper-to-paper relations
-└── taxonomy.yml            # Controlled types and dimensions with guidance
+No local setup is required. Add or edit Markdown directly in GitHub; automated checks validate the content, update the paper table, and rebuild the website after merge.
 
-src/                        # Timeline, relation graph, index, detail views
-scripts/                    # Validation, content build, README generation
-```
-
-## Add a paper
-
-1. Copy [`content/papers/_template/index.md`](content/papers/_template/index.md).
-2. Use a stable lowercase ID such as `method-name`; do not add a year suffix.
-3. Select existing values from [`data/taxonomy.yml`](data/taxonomy.yml).
-4. Add images under the paper's local `images/` directory and cite their source.
-5. Run the checks:
-
-```bash
-npm install
-npm run validate
-npm run readme
-npm test
-npm run build
-```
-
-arXiv papers and public white papers are welcome. Software-only projects without an accompanying paper are outside the paper collection.
-
-## Local website
-
-Node.js 20.19 or newer is required.
-
-```bash
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173`. The production build is written to `dist/` and deploys automatically to GitHub Pages from `main`.
+- [Add a paper](docs/CONTRIBUTION_GUIDE.md#add-a-paper)
+- [Add a relation](docs/CONTRIBUTION_GUIDE.md#add-a-relation)
+- [Choose relation types and dimensions](docs/CONTRIBUTION_GUIDE.md#choose-the-classification)
+- [Contribution rules](CONTRIBUTING.md)
 
 ## Citation
 
-If this atlas helps your research, please cite the repository URL and star it so new readers can find the collection. Paper-specific citations should always refer to the original authors and venues.
+If this collection supports your research, cite the repository URL. Please cite original papers for paper-specific claims and results.
 
 ## License
 
-Repository code and original notes are available under the [Apache License 2.0](LICENSE). Paper figures remain the property of their original authors and publishers and are included only with explicit source attribution for scholarly navigation.
+Repository code and original notes are available under the [Apache License 2.0](LICENSE). Paper figures remain the property of their original authors and publishers and are included with source attribution for scholarly navigation.

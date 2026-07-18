@@ -14,7 +14,7 @@ page.on('pageerror', (error) => errors.push(error.message))
 
 try {
   await page.goto(baseUrl, { waitUntil: 'networkidle' })
-  await page.getByText('Follow the ideas').waitFor()
+  await page.getByText('Paper Timeline').waitFor()
 
   await page.getByRole('link', { name: 'Relations', exact: true }).click()
   await page.getByRole('heading', { name: 'Research relations' }).waitFor()

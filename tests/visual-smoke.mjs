@@ -27,7 +27,7 @@ async function auditPage(page, route, expectedText, screenshotName, fullPage = f
 
 try {
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 })
-  await auditPage(desktop, '/', 'Follow the ideas', 'timeline-desktop')
+  await auditPage(desktop, '/', 'Paper Timeline', 'timeline-desktop')
   await desktop.locator('#year-2025').scrollIntoViewIfNeeded()
   await desktop.screenshot({ path: `${outputDirectory}/timeline-2025-desktop.png` })
 
@@ -89,7 +89,7 @@ try {
   if (!paperImageLoaded) failures.push('/papers/ael: paper image failed to load')
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 })
-  await auditPage(mobile, '/', 'Follow the ideas', 'timeline-mobile')
+  await auditPage(mobile, '/', 'Paper Timeline', 'timeline-mobile')
   await mobile.locator('#year-2024').scrollIntoViewIfNeeded()
   await mobile.screenshot({ path: `${outputDirectory}/timeline-2024-mobile.png` })
   await auditPage(mobile, '/relations', 'Research relations', 'relations-mobile')
