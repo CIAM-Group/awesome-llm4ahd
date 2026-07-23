@@ -4,7 +4,7 @@
 
 **Large language models for automatic heuristic and algorithm design.**
 
-[Website](https://ciam-group.github.io/awesome-llm4ahd/) · [Papers](#papers) · [Contribution guide](docs/CONTRIBUTION_GUIDE.md)
+[Website](https://ciam-group.github.io/awesome-llm4aad/) · [Papers](#papers) · [Contribution guide](docs/CONTRIBUTION_GUIDE.md)
 
 </div>
 
