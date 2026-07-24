@@ -40,6 +40,12 @@ nus:
   initials: NUS
   website: https://www.nus.edu.sg/
   accent: '#1d5a8a'
+ntu:
+  name: Nanyang Technological University
+  short_name: NTU
+  initials: NTU
+  website: https://www.ntu.edu.sg/
+  accent: '#c41230'
 sustech:
   name: Southern University of Science and Technology
   short_name: SUSTech
@@ -76,6 +82,36 @@ google-deepmind:
   initials: GDM
   website: https://deepmind.google/
   accent: '#4285f4'
+njust:
+  name: Nanjing University of Science and Technology
+  short_name: NJUST
+  initials: NJUST
+  website: https://www.njust.edu.cn/
+  accent: '#1f4e79'
+centralesupelec:
+  name: Université Paris-Saclay, CentraleSupélec
+  short_name: CentraleSupélec
+  initials: CS
+  website: https://www.centralesupelec.fr/
+  accent: '#0055a4'
+em-normandie:
+  name: EM Normandie Business School
+  short_name: EM Normandie
+  initials: EMN
+  website: https://www.em-normandie.com/
+  accent: '#003366'
+uzh:
+  name: University of Zurich
+  short_name: UZH
+  initials: UZH
+  website: https://www.uzh.ch/en.html
+  accent: '#004494'
+eth-zurich:
+  name: ETH Zurich
+  short_name: ETH Zurich
+  initials: ETH
+  website: https://ethz.ch/en.html
+  accent: '#1f407a'
 affiliation-pending:
   name: Affiliation to be normalized
   short_name: Pending

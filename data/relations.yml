@@ -71,3 +71,26 @@ relations:
     description: >-
       HSEvo includes FunSearch in its analysis of diversity and convergence in
       evolutionary program search.
+  - from: eoh
+    to: instspechh
+    type: generalizes
+    dimension: scope
+    description: >-
+      InstSpecHH moves beyond a single class-wide heuristic by partitioning
+      instances into subclasses, evolving a heuristic per subclass, and selecting
+      online for the target instance.
+  - from: eoh
+    to: evolved-alns
+    type: generalizes
+    dimension: design-object
+    description: >-
+      Evolved-ALNS expands LLM-driven evolution from local heuristic operators
+      to a full seven-module ALNS stack, including adaptive and control layers.
+  - from: eoh-s
+    to: raise
+    type: contrasts
+    dimension: scope
+    description: >-
+      RAISE addresses distributional robustness with constrained adversarial
+      instance search, instead of relying on a complementary heuristic set
+      trained on predefined diverse distributions.
