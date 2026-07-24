@@ -76,6 +76,12 @@ google-deepmind:
   initials: GDM
   website: https://deepmind.google/
   accent: '#4285f4'
+gatech:
+  name: Georgia Institute of Technology
+  short_name: Georgia Tech
+  initials: GT
+  website: https://www.gatech.edu/
+  accent: '#a88b3d'
 affiliation-pending:
   name: Affiliation to be normalized
   short_name: Pending
